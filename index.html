@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>진우의 매일 영어 뉴스 공부</title>
+<style>
+  :root {
+    --bg-page: #0f172a;
+    --bg-card: #1e293b;
+    --bg-card-hover: #334155;
+    --border: #334155;
+    --border-active: #38bdf8;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-highlight: #38bdf8;
+    --accent: #38bdf8;
+    --accent-gold: #fbbf24;
+    --accent-green: #34d399;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  body {
+    background: var(--bg-page);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    padding: 16px;
+    padding-bottom: 80px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  header {
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header h1 { font-size: 20px; font-weight: 800; color: #fff; }
+  header p { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+  .badge { background: #0284c7; color: #fff; font-size: 11px; font-weight: 700; padding: 4px 8px; border-radius: 999px; }
+
+  /* Tabs */
+  .tabs { display: flex; gap: 8px; margin-bottom: 18px; }
+  .tab-btn {
+    flex: 1;
+    padding: 12px 0;
+    text-align: center;
+    border-radius: 12px;
+    background: #1e293b;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all .2s;
+  }
+  .tab-btn.active {
+    background: #0284c7;
+    color: #fff;
+    border-color: #38bdf8;
+    box-shadow: 0 4px 12px rgba(2,132,199,.3);
+  }
+
+  /* News Card */
+  .news-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    transition: transform .15s, border-color .15s;
+  }
+  .news-card:active { transform: scale(0.99); }
+  .news-date { font-size: 12px; font-weight: 700; color: var(--accent); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .news-headline { font-size: 19px; font-weight: 700; line-height: 1.4; color: #fff; margin-bottom: 10px; }
+  .news-summary-kr { font-size: 14px; color: var(--text-secondary); line-height: 1.5; border-left: 3px solid #38bdf8; padding-left: 10px; margin-top: 8px; }
+  .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; font-size: 12px; color: #64748b; }
+
+  /* Detail View */
+  .detail-view {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 22px;
+  }
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #334155;
+    color: #f1f5f9;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 16px;
+  }
+  .detail-headline { font-size: 22px; font-weight: 800; line-height: 1.35; color: #fff; margin-bottom: 12px; }
+  .detail-meta { font-size: 12px; color: var(--text-secondary); margin-bottom: 18px; display: flex; gap: 12px; align-items: center; }
+  
+  .audio-btn {
+    background: #059669;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .youtube-btn {
+    background: #dc2626;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.2s;
+  }
+  .youtube-btn:hover { background: #b91c1c; }
+  .yt-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    background: rgba(220, 38, 38, 0.2);
+    color: #f87171;
+    border: 1px solid rgba(220, 38, 38, 0.4);
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+    margin-left: 6px;
+  }
+  .tip-box {
+    background: #0f172a;
+    border-left: 4px solid var(--accent-gold);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: #fde68a;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .para {
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 18px;
+    color: #f1f5f9;
+  }
+  .w {
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 1px 3px;
+    transition: background .15s;
+  }
+  .w:hover, .w:active { background: #0284c7; color: #fff; }
+  .w.saved {
+    background: rgba(56, 189, 248, 0.2);
+    border-bottom: 2px solid var(--accent);
+    color: #38bdf8;
+    font-weight: 600;
+  }
+
+  .kr-box {
+    background: #0f172a;
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 24px;
+    border: 1px dashed #334155;
+  }
+  .kr-box-title { font-size: 13px; font-weight: 700; color: #38bdf8; margin-bottom: 8px; }
+  .kr-box p { font-size: 14px; color: #cbd5e1; line-height: 1.6; }
+
+  /* Vocab View */
+  .vcard {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .vword { font-size: 19px; font-weight: 800; color: #38bdf8; display: flex; align-items: center; gap: 8px; }
+  .vdef { margin-top: 8px; color: #f1f5f9; font-size: 15px; line-height: 1.5; }
+  .vsrc { margin-top: 10px; color: #64748b; font-size: 12px; }
+  .vdel {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: #334155;
+    border: none;
+    color: #94a3b8;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .toast {
+    position: fixed;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    background: #0284c7;
+    color: #fff;
+    border-radius: 999px;
+    padding: 12px 24px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.4);
+    font-size: 14px;
+    font-weight: 700;
+    opacity: 0;
+    transition: opacity .25s;
+    pointer-events: none;
+    z-index: 1000;
+  }
+  .toast.show { opacity: 1; }
+  .empty { text-align: center; color: #64748b; padding: 60px 20px; font-size: 15px; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>📰 진우의 영어 뉴스 공부</h1>
+    <p>매일 아침 7:30 통화 뉴스 & 단어 학습장</p>
+  </div>
+  <span class="badge">PRO</span>
+</header>
+
+<div class="tabs">
+  <div class="tab-btn active" id="tab-news" onclick="switchTab('news')">📰 오늘의 뉴스</div>
+  <div class="tab-btn" id="tab-vocab" onclick="switchTab('vocab')">📒 단어장 (<span id="vocab-count">0</span>)</div>
+</div>
+
+<div id="news-container"></div>
+<div id="vocab-container" style="display:none;"></div>
+<div class="toast" id="toast"></div>
+
+<script>
+// 기본 사전 데이터베이스 (주요 단어 자동 매핑)
+const DICTIONARY = {
+  "special": "특별한, 특수한",
+  "counsel": "변호인; (Special counsel: 특별검사/특검)",
+  "team": "팀, 수사팀",
+  "raid": "급습하다, 압수수색하다",
+  "raids": "압수수색하다, 급습하다",
+  "suspects": "의심하다, 혐의를 두다",
+  "employee": "직원, 관계자",
+  "concealed": "숨겼다, 은닉했다",
+  "forged": "위조했다, 조작했다",
+  "vote": "투표, 표",
+  "tally": "기록, 집계",
+  "sheet": "용지, 표 (tally sheet: 집계표/개표상황표)",
+  "election": "선거",
+  "superintendent": "교육감, 감독관",
+  "province": "도 (Gyeonggi Province: 경기도)",
+  "investigators": "수사관들",
+  "commission": "위원회 (Election Commission: 선관위)",
+  "execute": "집행하다, 실행하다",
+  "search": "수색, 조사",
+  "seizure": "압수 (Search and seizure: 압수수색)",
+  "warrant": "영장",
+  "cover": "덮다, 은폐하다 (cover up: 은폐하다)",
+  "incorrect": "부정확한, 잘못된",
+  "final": "최종의",
+  "cruise": "유람선, 크루즈 여행",
+  "abrupt": "갑작스러운, 뜻밖의",
+  "halt": "중단, 멈춤 (come to an abrupt halt: 갑자기 중단되다)",
+  "stranded": "발이 묶인, 고립된 (be stranded: 발이 묶이다)",
+  "passengers": "승객들",
+  "soaring": "치솟는, 급등하는 (soaring fuel costs: 급등하는 유류비)",
+  "fuel": "연료",
+  "costs": "비용, 경비",
+  "forced": "강제했다, ~하게 만들었다",
+  "suspend": "중단하다, 유예하다",
+  "operations": "운항, 영업",
+  "journey": "여정, 여행",
+  "promising": "약속하는, 유망한",
+  "cabin": "선실, 객실",
+  "bankruptcy": "파산 (file for bankruptcy: 파산 신청하다)",
+  "guarantee": "보장, 보증"
+};
+
+// 기본 뉴스 데이터 (2026-11-12 최신순)
+const DEFAULT_NEWS = [
+  {
+    date: "2026-11-12",
+    field: "국제/라이프",
+    headline: "Dream World Cruise Comes to an Abrupt Halt, Stranding 200 Passengers in Cambodia",
+    headlineKr: "3년 반 세계 일주 크루즈의 날벼락 중단… 승객 200여 명 캄보디아에 발 묶여",
+    youtubeUrl: "https://youtu.be/7_B8omtRZ3c?si=4vLyEmEwZ-JdK-Jr",
+    body: "A dream cruise around the world has come to an abrupt halt. ! More than 200 cruise passengers are stranded in Cambodia after soaring fuel costs forced their ship to suspend operations. ! The Villa Vie Odyssey set sail promising passengers three and a half years traveling the world, with some spending up to $440,000 to buy a cabin. ! But passengers were given just hours to pack up and get off the ship after the company announced plans to file for bankruptcy, leaving many with nowhere to go and no clear path to refunds.",
+    krSummary: "3년 반 동안 세계 150여 개국을 항해하기로 약속했던 호화 크루즈 '빌라 비 오디세이(Villa Vie Odyssey)'가 치솟은 유류비와 재정난을 감당하지 못하고 캄보디아에서 전격 운항을 중단했습니다. 전 재산을 털거나 집까지 팔아 탑승했던 승객 200여 명은 불과 몇 시간 만에 짐을 싸서 배에서 내려야 했으며, 크루즈 회사가 파산 신청을 준비하면서 환불조차 불투명한 상황에 처했습니다."
+  },
+  {
+    date: "2026-11-11",
+    field: "정치/법조",
+    headline: "Special Counsel Raids NEC Over Alleged Vote Tally Sheet Forgery",
+    headlineKr: "선관위 특검, '개표상황표 위조·은닉 혐의' 경기도선관위 압수수색",
+    body: "A special counsel team said Tuesday it suspects a National Election Commission employee concealed and forged a vote tally sheet during the election for education superintendent of Gyeonggi Province in June. ! Investigators were sent to the Gyeonggi provincial election commission and the election commission in Gwangju earlier in the day to execute a search and seizure warrant. ! The team suspects the employee concealed and forged the tally sheet, which the local commission sought to cover up, leading to an incorrect final tally.",
+    krSummary: "특검팀이 지난 6월 치러진 경기도교육감 선거 과정에서 광주시 선관위 직원이 개표상황표를 은닉하고 위조해 최종 개표 결과가 실제와 달라진 혐의를 포착하고, 10일 경기도선관위와 광주시선관위에 압수수색 영장을 집행했습니다."
+  }
+];
+
+// 로컬스토리지 로드 및 최신 기본 데이터 자동 병합
+let newsList = JSON.parse(localStorage.getItem('news_study_list')) || DEFAULT_NEWS;
+DEFAULT_NEWS.forEach(dn => {
+  const existingIdx = newsList.findIndex(n => n.date === dn.date);
+  if (existingIdx === -1) {
+    newsList.unshift(dn);
+  } else {
+    // 2026-11-12 같은 신규 항목은 유튜브 링크 및 다듬어진 내용으로 덮어쓰기
+    newsList[existingIdx] = { ...newsList[existingIdx], ...dn };
+  }
+});
+newsList.sort((a, b) => b.date.localeCompare(a.date));
+
+const DEFAULT_VOCAB = [
+  { word: "Abrupt halt", def: "갑작스러운 중단 (come to an abrupt halt: 갑자기 멈춰 서다)", date: "2026-11-12", src: "세계 일주 크루즈 중단 기사" },
+  { word: "Stranded", def: "발이 묶인, 고립된 (be stranded: 발이 묶이다)", date: "2026-11-12", src: "세계 일주 크루즈 중단 기사" },
+  { word: "Soaring", def: "치솟는, 급등하는 (soaring fuel costs: 급등하는 유류비)", date: "2026-11-12", src: "세계 일주 크루즈 중단 기사" },
+  { word: "Suspend operations", def: "운항/영업을 중단하다", date: "2026-11-12", src: "세계 일주 크루즈 중단 기사" },
+  { word: "File for bankruptcy", def: "파산 신청을 하다", date: "2026-11-12", src: "세계 일주 크루즈 중단 기사" },
+  { word: "Special counsel", def: "특별검사 (특검)", date: "2026-11-11", src: "선관위 특검 기사" },
+  { word: "Search and seizure", def: "압수수색", date: "2026-11-11", src: "선관위 특검 기사" },
+  { word: "Concealed", def: "숨겼다 (은닉했다)", date: "2026-11-11", src: "선관위 특검 기사" },
+  { word: "Forged", def: "위조했다", date: "2026-11-11", src: "선관위 특검 기사" },
+  { word: "Tally sheet", def: "개표상황표 (집계표)", date: "2026-11-11", src: "선관위 특검 기사" }
+];
+
+let vocabList = JSON.parse(localStorage.getItem('news_vocab_list')) || DEFAULT_VOCAB;
+DEFAULT_VOCAB.forEach(dv => {
+  if (!vocabList.some(v => v.word.toLowerCase() === dv.word.toLowerCase())) {
+    vocabList.unshift(dv);
+  }
+});
+
+let currentOpenDate = "2026-11-12";
+
+function saveStorage() {
+  localStorage.setItem('news_study_list', JSON.stringify(newsList));
+  localStorage.setItem('news_vocab_list', JSON.stringify(vocabList));
+  document.getElementById('vocab-count').textContent = vocabList.length;
+}
+
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 1600);
+}
+
+function isSaved(word) {
+  return vocabList.some(v => v.word.toLowerCase() === word.toLowerCase());
+}
+
+function speak(text) {
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'en-US';
+    u.rate = 0.85; // 조금 천천히 듣기 편한 속도
+    window.speechSynthesis.speak(u);
+  } else {
+    toast('이 브라우저는 음성 재생을 지원하지 않습니다.');
+  }
+}
+
+function renderNews() {
+  const container = document.getElementById('news-container');
+  if (currentOpenDate) {
+    const n = newsList.find(x => x.date === currentOpenDate) || newsList[0];
+    if (!n) { currentOpenDate = null; renderNews(); return; }
+
+    const rawSentences = n.body.split('!').map(s => s.trim()).filter(Boolean);
+    const parsedHtml = rawSentences.map(sen => {
+      const words = sen.split(/\s+/).map(w => {
+        const clean = w.replace(/[^a-zA-Z]/g, '');
+        const savedCls = isSaved(clean) ? ' saved' : '';
+        return `<span class="w${savedCls}" onclick="toggleWord('${clean}', '${n.headline}')">${w}</span>`;
+      }).join(' ');
+      return `<p class="para">${words}</p>`;
+    }).join('');
+
+    container.innerHTML = `
+      <div class="detail-view">
+        <button class="back-btn" onclick="currentOpenDate=null; renderNews();">← 뉴스 목록으로</button>
+        <div class="news-date">📅 ${n.date} · [${n.field}]</div>
+        <div class="detail-headline">${n.headline}</div>
+        <div class="detail-meta">
+          <button class="audio-btn" onclick="speak('${n.headline}. ${n.body.replace(/'/g, "\\'")}')">🔊 영어로 듣기</button>
+          ${n.youtubeUrl ? `<a href="${n.youtubeUrl}" target="_blank" rel="noopener noreferrer" class="youtube-btn">📺 유튜브 원본 영상 보기</a>` : ''}
+        </div>
+        <div class="tip-box">
+          💡 <strong>단어 공부 팁:</strong> 본문에서 모르는 영어 단어를 터치하면 바로 <strong>[단어장]</strong>에 자동 저장됩니다!
+        </div>
+        ${parsedHtml}
+        <div class="kr-box">
+          <div class="kr-box-title">🇰🇷 우리말 핵심 요약</div>
+          <p>${n.krSummary}</p>
+        </div>
+      </div>
+    `;
+    return;
+  }
+
+  // List View
+  container.innerHTML = newsList.map(n => `
+    <div class="news-card" onclick="currentOpenDate='${n.date}'; renderNews();">
+      <div class="news-date">📅 ${n.date} · [${n.field}] ${n.youtubeUrl ? '<span class="yt-badge">📺 영상</span>' : ''}</div>
+      <div class="news-headline">${n.headline}</div>
+      <div class="news-summary-kr">${n.headlineKr}</div>
+      <div class="card-footer">
+        <span>터치해서 본문 & 단어 학습</span>
+        <span>→</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderVocab() {
+  const container = document.getElementById('vocab-container');
+  if (!vocabList.length) {
+    container.innerHTML = '<div class="empty">저장된 단어가 없습니다.<br>뉴스 본문을 읽다가 모르는 단어를 터치해 보세요!</div>';
+    return;
+  }
+  container.innerHTML = vocabList.map((v, idx) => `
+    <div class="vcard">
+      <button class="vdel" onclick="deleteWord(${idx})">삭제</button>
+      <div class="vword">
+        <span>${v.word}</span>
+        <button class="audio-btn" style="padding:2px 8px; font-size:11px;" onclick="speak('${v.word}')">🔊</button>
+      </div>
+      <div class="vdef">${v.def || '뜻을 채우는 중...'}</div>
+      <div class="vsrc">출처: ${v.src} (${v.date})</div>
+    </div>
+  `).join('');
+}
+
+function toggleWord(word, srcTitle) {
+  if (!word || word.length < 2) return;
+  const idx = vocabList.findIndex(v => v.word.toLowerCase() === word.toLowerCase());
+  if (idx >= 0) {
+    toast(`이미 단어장에 있습니다: ${word}`);
+    return;
+  }
+  const cleanLower = word.toLowerCase();
+  const foundDef = DICTIONARY[cleanLower] || `${word} (검색 중...)`;
+  vocabList.unshift({
+    word: word.charAt(0).toUpperCase() + word.slice(1),
+    def: foundDef,
+    date: new Date().toISOString().slice(0, 10),
+    src: srcTitle.length > 25 ? srcTitle.slice(0, 25) + '...' : srcTitle
+  });
+  saveStorage();
+  toast(`📚 단어장에 저장: ${word}`);
+  renderNews();
+}
+
+function deleteWord(idx) {
+  vocabList.splice(idx, 1);
+  saveStorage();
+  toast('단어장에서 삭제했습니다.');
+  renderVocab();
+}
+
+function switchTab(t) {
+  document.getElementById('tab-news').classList.toggle('active', t === 'news');
+  document.getElementById('tab-vocab').classList.toggle('active', t === 'vocab');
+  document.getElementById('news-container').style.display = t === 'news' ? 'block' : 'none';
+  document.getElementById('vocab-container').style.display = t === 'vocab' ? 'block' : 'none';
+  if (t === 'news') renderNews();
+  else renderVocab();
+}
+
+saveStorage();
+renderNews();
+</script>
+
+</body>
+</html>
