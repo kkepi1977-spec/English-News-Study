@@ -382,8 +382,17 @@ const DICTIONARY = {
   "worse": "더 나쁜 (to make matters worse: 설상가상으로)"
 };
 
-// 기본 뉴스 데이터 (2026-11-12 최신순)
+// 기본 뉴스 데이터 (2026-11-13 최신순)
 const DEFAULT_NEWS = [
+  {
+    date: "2026-11-13",
+    field: "사회/문화/라이프",
+    headline: "San Diego Ranks 14th for Halloween as Weather Knocks Down City's Score",
+    headlineKr: "샌디에이고, '할로윈 즐기기 좋은 미국 14위'… 화창한 날씨 탓에 감점?",
+    youtubeUrl: "https://youtu.be/gpIhWbBxtgw?si=Z5FuIDFQomEbqSpi",
+    body: "Well, San Diego ranks 14th out of the biggest 100 US cities for Halloween. ! Our many Halloween events helped boost our ranking, but one big surprise brought us down: our weather. ! Yes, even in sunny San Diego, our weather score was one of the worst. ! WalletHub writer and analyst Chip Lup says San Diego's Halloween fun rank is seventh out of 100 based on Google searches for Halloween parties and our many activities. ! San Diego is full of fun events from family events to haunted houses and zombie bar crawls. ! It's super fun. My kids love it every year. We come back with stacks of candy. ! While those rankings are fairly high, our weather score is what knocked us down. ! Halloween is for the most part an autumn related activity, so people are expecting maybe cooler temperatures. ! Our Halloween night forecast actually shows the chance of rain this year, but still some San Diegans don't agree with our poor weather ranking. ! Much rather be hot all night getting candy and like having a blast. I love the San Diego weather personally. ! Overall, it's shaping up to be a pretty good Halloween here in America's finest city. ! If you're in San Diego on Halloween and you don't have a good time, that's your fault.",
+    krSummary: "샌디에이고가 미국 100대 대도시 중 할로윈을 보내기 좋은 도시 14위에 올랐습니다. 다양한 이벤트로 점수를 많이 땄지만, 맑고 따뜻한 기후 때문에 오히려 쌀쌀한 가을 날씨를 기대하는 할로윈 날씨 점수에서 최하위권을 기록하며 순위가 깎였다는 유쾌한 뉴스입니다."
+  },
   {
     date: "2026-11-12",
     field: "국제/라이프",
@@ -423,6 +432,11 @@ DEFAULT_NEWS.forEach(dn => {
 newsList.sort((a, b) => b.date.localeCompare(a.date));
 
 const DEFAULT_VOCAB = [
+  { word: "Rank 14th out of ~", def: "~중에서 14위를 차지하다", date: "2026-11-13", src: "샌디에이고 할로윈 기사" },
+  { word: "Boost our ranking", def: "순위를 끌어올리다", date: "2026-11-13", src: "샌디에이고 할로윈 기사" },
+  { word: "Bring us down", def: "순위를 떨어뜨리다, 감점시키다", date: "2026-11-13", src: "샌디에이고 할로윈 기사" },
+  { word: "Have a blast", def: "아주 신나게 놀다, 대단히 즐거운 시간을 보내다", date: "2026-11-13", src: "샌디에이고 할로윈 기사" },
+  { word: "Shape up to be", def: "~로 무르익다, 전개되다", date: "2026-11-13", src: "샌디에이고 할로윈 기사" },
   { word: "Abrupt halt", def: "갑작스러운 중단 (come to an abrupt halt: 갑자기 멈춰 서다)", date: "2026-11-12", src: "세계 일주 크루즈 중단 기사" },
   { word: "Stranded", def: "발이 묶인, 고립된 (be stranded: 발이 묶이다)", date: "2026-11-12", src: "세계 일주 크루즈 중단 기사" },
   { word: "Soaring", def: "치솟는, 급등하는 (soaring fuel costs: 급등하는 유류비)", date: "2026-11-12", src: "세계 일주 크루즈 중단 기사" },
@@ -442,7 +456,7 @@ DEFAULT_VOCAB.forEach(dv => {
   }
 });
 
-let currentOpenDate = "2026-11-12";
+let currentOpenDate = "2026-11-13";
 
 function saveStorage() {
   localStorage.setItem('news_study_list', JSON.stringify(newsList));
