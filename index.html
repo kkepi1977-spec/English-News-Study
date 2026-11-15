@@ -379,11 +379,43 @@ const DICTIONARY = {
   "scrambling": "허둥지둥 대처하는 (scramble to: 앞다투어 ~하다)",
   "compensation": "보상, 배상금",
   "expense": "비용, 경비 (at one's own expense: 자비로)",
-  "worse": "더 나쁜 (to make matters worse: 설상가상으로)"
+  "worse": "더 나쁜 (to make matters worse: 설상가상으로)",
+  "interviewing": "면접을 보는, 인터뷰하는",
+  "iced": "얼음을 넣은 (iced coffee: 아이스커피)",
+  "caffeinate": "카페인을 섭취하다 (right to caffeinate: 커피 마실 권리)",
+  "generational": "세대의 (generational divide: 세대 간 격차·갈등)",
+  "divide": "격차, 분열",
+  "defending": "옹호하는, 지키는 (defend: 방어하다)",
+  "candidates": "지원자들, 후보자들",
+  "latte": "라떼 (iced latte: 아이스라떼)",
+  "recruiter": "채용 담당자",
+  "viral": "입소문이 퍼지는, 바이럴의 (go viral: 빠르게 퍼지다)",
+  "conversation": "대화, 논의 (viral conversation: 온라인 확산 논쟁)",
+  "errands": "볼일, 심부름 (a stop on your list of errands: 볼일 목록 중 한 곳)",
+  "appropriate": "적절한, 알맞은 (Is it appropriate to ~?: ~해도 되는가?)",
+  "recruit": "채용하다",
+  "roles": "직무, 역할",
+  "individuals": "개인들, 사람들",
+  "dynamic": "역동적인, 활발한",
+  "strict": "엄격한",
+  "disrespectful": "무례한, 예의 없는",
+  "millennial": "밀레니얼 세대의 사람",
+  "management": "관리 (time management: 시간 관리)",
+  "observation": "관찰, 지켜본 것",
+  "posting": "게시하는 것 (post: 게시하다)"
 };
 
 // 기본 뉴스 데이터 (2026-11-13 최신순)
 const DEFAULT_NEWS = [
+  {
+    date: "2026-11-16",
+    field: "직장/문화",
+    headline: "Iced Coffee at a Job Interview? Gen Z Trend Sparks Intense Debate",
+    headlineKr: "면접장에 아이스커피를 들고 와도 될까?… '커피 권리' 둘러싼 Z세대 논쟁 확산",
+    youtubeUrl: "https://youtu.be/82HS7XTpQaQ",
+    body: "What would you think if you saw someone interviewing for a job and they were holding an iced coffee? ! It's a question that's creating a generational divide on the internet with Gen Z defending their right to caffeinate. ! My Gen Z candidates are showing up to their interviews with iced coffee, iced latte in hand. ! This social media video from a recruiter is starting a viral conversation. ! This interview is just like a stop on your list of errands for the day. ! Is it appropriate to show up for a job interview with an iced coffee in hand? ! I recruit for so many different types of roles and you know different age ranges, all different types of individuals. ! And what I was seeing from Gen Z is that they were showing up with iced coffees. ! The conversation online is dynamic with comments like, \"I just know y'all don't pay nearly enough to be this strict.\" ! Another comment, \"But an interview is just a stop in my day. It's not my whole day.\" ! And another comment, another recruiter POV here, \"If you can show up early or on time with the iced coffee, you're already showing good time management.\" ! I think that's disrespectful. ! I'm not a millennial, but I know a lot of them and they always seem to have like an iced latte around. So, so you're not surprised? I'm not surprised. ! As a millennial, like that's a big no no for me. ! If it is not that serious of a job interview, then yeah. ! It was just an observation I was posting. I had no idea we would end up here.",
+    krSummary: "면접을 보러 온 지원자가 손에 아이스커피를 들고 있다면 어떻게 생각하시나요? '커피는 마셔야 한다'는 Z세대의 권리를 두고 인터넷에서 세대 간 갈등이 벌어지고 있습니다. 한 채용 담당자가 'Z세대 지원자들이 면접에 아이스커피, 아이스라떼를 들고 나타난다'는 영상을 올리며 온라인에서 논쟁이 확산됐고, '면접은 하루 볼일 목록 중 들르는 한 곳일 뿐'이라는 반응이 나왔습니다. 면접장에 아이스커피를 들고 가는 것이 적절한가 하는 질문에 대해, 여러 직무와 연령대를 채용하는 이 담당자는 Z세대가 아이스커피를 들고 온다는 점을 관찰했다고 전했습니다. 온라인 댓글은 '그렇게 엄격할 만큼 돈을 주는 것 같지 않다', '면접은 내 하루의 한 코스일 뿐 전부가 아니다', '시간 맞춰 아이스커피를 들고 왔다면 시간 관리는 이미 잘하는 것' 등 다양했습니다. '무례하다'는 반응, '밀레니얼인 나에게는 절대 안 되는 일'이라는 반응, '그 정도로 중요한 면접이 아니라면 괜찮다'는 의견도 있었고, '그냥 관찰한 것을 올렸을 뿐 이렇게 커질 줄 몰랐다'는 게시자의 말로 리포트가 끝납니다."
+  },
   {
     date: "2026-11-13",
     field: "사회/문화/라이프",
@@ -432,6 +464,18 @@ DEFAULT_NEWS.forEach(dn => {
 newsList.sort((a, b) => b.date.localeCompare(a.date));
 
 const DEFAULT_VOCAB = [
+  { word: "Generational divide", def: "세대 간 격차·갈등 (generational: 세대의)", date: "2026-11-16", src: "면접장 아이스커피 논쟁 기사" },
+  { word: "Caffeinate", def: "카페인을 섭취하다 (right to caffeinate: 커피 마실 권리)", date: "2026-11-16", src: "면접장 아이스커피 논쟁 기사" },
+  { word: "Viral conversation", def: "온라인에서 빠르게 확산되는 논쟁·화제", date: "2026-11-16", src: "면접장 아이스커피 논쟁 기사" },
+  { word: "A stop on your list of errands", def: "하루 볼일 목록 중 들르는 한 곳 (errand: 심부름, 볼일)", date: "2026-11-16", src: "면접장 아이스커피 논쟁 기사" },
+  { word: "Is it appropriate to ~", def: "~하는 것이 적절한가? (appropriate: 적절한)", date: "2026-11-16", src: "면접장 아이스커피 논쟁 기사" },
+  { word: "Recruit for roles", def: "직무 인력을 채용하다 (recruit: 채용하다)", date: "2026-11-16", src: "면접장 아이스커피 논쟁 기사" },
+  { word: "POV (point of view)", def: "관점, 시각 ('내 관점에서는'이라는 뜻의 줄임말)", date: "2026-11-16", src: "면접장 아이스커피 논쟁 기사" },
+  { word: "Show good time management", def: "시간 관리를 잘하다", date: "2026-11-16", src: "면접장 아이스커피 논쟁 기사" },
+  { word: "A big no no", def: "절대 안 되는 일, 금기", date: "2026-11-16", src: "면접장 아이스커피 논쟁 기사" },
+  { word: "Millennial", def: "밀레니얼 세대(1980년대 초~1990년대 중반 출생)", date: "2026-11-16", src: "면접장 아이스커피 논쟁 기사" },
+  { word: "Observation", def: "관찰, 지켜본 것 (just an observation: 그냥 지켜본 것일 뿐)", date: "2026-11-16", src: "면접장 아이스커피 논쟁 기사" },
+  { word: "Defending their right", def: "자신의 권리를 옹호하다 (defend: 방어하다, 옹호하다)", date: "2026-11-16", src: "면접장 아이스커피 논쟁 기사" },
   { word: "Rank 14th out of ~", def: "~중에서 14위를 차지하다", date: "2026-11-13", src: "샌디에이고 할로윈 기사" },
   { word: "Boost our ranking", def: "순위를 끌어올리다", date: "2026-11-13", src: "샌디에이고 할로윈 기사" },
   { word: "Bring us down", def: "순위를 떨어뜨리다, 감점시키다", date: "2026-11-13", src: "샌디에이고 할로윈 기사" },
@@ -456,7 +500,7 @@ DEFAULT_VOCAB.forEach(dv => {
   }
 });
 
-let currentOpenDate = "2026-11-13";
+let currentOpenDate = "2026-11-16";
 
 function saveStorage() {
   localStorage.setItem('news_study_list', JSON.stringify(newsList));
@@ -487,6 +531,11 @@ function speak(text) {
   }
 }
 
+function speakNews(date) {
+  const n = newsList.find(x => x.date === date);
+  if (n) speak(n.headline + '. ' + n.body);
+}
+
 function renderNews() {
   const container = document.getElementById('news-container');
   if (currentOpenDate) {
@@ -512,7 +561,7 @@ function renderNews() {
         <div class="news-date">📅 ${n.date} · [${n.field}]</div>
         <div class="detail-headline">${n.headline}</div>
         <div class="detail-meta">
-          <button class="audio-btn" onclick="speak('${n.headline}. ${n.body.replace(/'/g, "\\'")}')">🔊 영어로 듣기</button>
+          <button class="audio-btn" data-date="${n.date}" onclick="speakNews(this.dataset.date)">🔊 영어로 듣기</button>
           ${n.youtubeUrl ? `<a href="${n.youtubeUrl}" target="_blank" rel="noopener noreferrer" class="youtube-btn">📺 유튜브 원본 영상 보기</a>` : ''}
         </div>
         <div class="tip-box">
