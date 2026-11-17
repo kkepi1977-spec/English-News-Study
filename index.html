@@ -434,11 +434,45 @@ const DICTIONARY = {
   "arrangements": "배열, 장식 (flower arrangement: 꽃꽂이)",
   "aware": "알고 있는 (be aware of: ~을 알고 있다)",
   "support": "지지하다, 돕다",
-  "wallet": "지갑 (put pressure on their wallets: 지갑에 부담을 주다)"
+  "wallet": "지갑 (put pressure on their wallets: 지갑에 부담을 주다)",
+  "ingested": "삼켰다, 섭취했다 (ingest: 삼키다)",
+  "habitat": "서식지, 사육 공간",
+  "knit": "뜬, 니트의 (knit cap: 털모자)",
+  "cap": "모자 (knit cap: 털모자)",
+  "spokesperson": "대변인",
+  "tossed": "던졌다 (toss: 던지다)",
+  "catapulted": "튕겨 날아갔다, 발사됐다",
+  "ceiling": "천장",
+  "safely": "안전하게",
+  "premature": "조산의, 때 이른",
+  "weighed": "몸무게가 나갔다 (weigh: 무게가 나가다)",
+  "survival": "생존",
+  "enclosure": "(동물) 우리, 사육장",
+  "engaged": "약혼했다",
+  "cameo": "깜짝 등장, 카메오",
+  "pumpkins": "호박들 (pumpkin: 호박)",
+  "buddies": "친구들 (buddy: 친구)",
+  "accessories": "액세서리, 장식품",
+  "hair ties": "머리끈",
+  "socks": "양말",
+  "underwent": "겪었다, 받았다 (undergo: 겪다)",
+  "confident": "확신하는, 자신 있는",
+  "tough": "억척스러운, 강한",
+  "fluids": "수액, 액체",
+  "fibers": "섬유, 올 (fiber: 섬유)"
 };
 
-// 기본 뉴스 데이터 (2026-11-13 최신순)
+// 기본 뉴스 데이터 (2026-11-18 최신순)
 const DEFAULT_NEWS = [
+  {
+    date: "2026-11-18",
+    field: "라이프/문화",
+    headline: "Cincinnati Zoo monitors hippo after knit cap incident",
+    headlineKr: "관람객이 던진 털모자 삼킨 신시내티 동물원 하마 '피오나'… 24시간 관찰 중",
+    youtubeUrl: "https://youtu.be/jiJdDB_g6YA",
+    body: "Over the years, Fiona the Hippo has been known to consume even a whole watermelon with ease. ! But watermelons are still at least food. ! On Monday, the Cincinnati Zoo shared that its most famous resident will be getting monitored around the clock away from the public after she ingested an object that a visitor accidentally tossed into her habitat. ! Specifically, according to the Cincinnati Enquirer, a zoo spokesperson says she swallowed part of a knit cap after a child tossed the hat into the air and then it was catapulted into her habitat by a ceiling fan. ! Thankfully, the zoo says it is cautiously optimistic the hat will make its way through her safely. ! For almost a decade now, people around the world have been invested in Fiona's health ever since she was born 6 weeks premature in 2017. ! At birth, she weighed just 29 lbs. ! Immediately, her survival journey became an international story as she was able to eventually take her first steps and then gain weight by consuming her caretaker's femurs. ! Just kidding on the last one. ! But as she grew, so did her fame. ! One couple even got engaged in front of her enclosure, and she was kind enough to make a cameo. ! These days, Fiona weighs more than 2500 lb and loves to eat pumpkins with her buddies in Hippo Cove. ! And for the record, she's not alone here. ! In the past year or so, I've introduced you to a few animals who also consumed human clothing or accessories. ! For example, Midnight here ate 26 hair ties in a Florida home, and Luna in California wolfed down 24 socks. ! Thankfully, they were both okay after they each underwent emergency surgery to remove their clothing items. ! However, in Fiona's case, the zoo seems pretty confident that this tough lady will be able to pass the hat on her own. ! Also guys, according to the Cincinnati Enquirer's report, Fiona got a giant enema and lots of fluids and has already passed some fibers from the cap.",
+    krSummary: "미국 신시내티 동물원의 스타 하마 '피오나'가 관람객이 실수로 던진 털모자(knit cap)를 삼켜 24시간 관찰을 받고 있습니다. 어린이가 공중에 던진 모자가 천장 선풍기에 걸려 사육장 위 작은 틈으로 날아 들어갔다고 동물원은 밝혔습니다. 2017년 6주 조산으로 29파운드에 태어나 전 세계 팬들의 응원을 받아 온 피오나는 지금 2,500파운드가 넘고, 사육팀은 모자가 무사히 빠져나갈 것으로 조심스럽게 낙관하며 이미 수액과 관장 처치로 모자 섬유 일부가 배출됐다고 합니다."
+  },
   {
     date: "2026-11-17",
     field: "경제/생활",
@@ -505,6 +539,21 @@ DEFAULT_NEWS.forEach(dn => {
 newsList.sort((a, b) => b.date.localeCompare(a.date));
 
 const DEFAULT_VOCAB = [
+  { word: "Ingest", def: "[동] (물건·음식을) 삼키다, 섭취하다 · /ɪnˈdʒest/ — 예: She ingested part of a knit cap.", date: "2026-11-18", src: "털모자 삼킨 하마 피오나 기사" },
+  { word: "Around the clock", def: "[구] 24시간 내내, 밤낮없이 — 예: Staff are watching her around the clock.", date: "2026-11-18", src: "털모자 삼킨 하마 피오나 기사" },
+  { word: "Habitat", def: "[명] 서식지, (동물원) 사육 공간 · /ˈhæbɪtæt/ — 예: The hat flew into her habitat.", date: "2026-11-18", src: "털모자 삼킨 하마 피오나 기사" },
+  { word: "Knit cap", def: "[명] 털모자, 니트 모자 · /nɪt kæp/ — 예: She swallowed part of a knit cap.", date: "2026-11-18", src: "털모자 삼킨 하마 피오나 기사" },
+  { word: "Catapult", def: "[동] 튕겨 보내다, 발사하다 · /ˈkætəpʌlt/ — 예: A ceiling fan catapulted the hat into her habitat.", date: "2026-11-18", src: "털모자 삼킨 하마 피오나 기사" },
+  { word: "Cautiously optimistic", def: "[구] 조심스럽게 낙관하는 · /ˈkɔːʃəsli ˌɑːptɪˈmɪstɪk/ — 예: Her care team is cautiously optimistic.", date: "2026-11-18", src: "털모자 삼킨 하마 피오나 기사" },
+  { word: "Make its way through", def: "[구] (몸속을) 빠져나가다, 통과하다 — 예: They hope the hat will make its way through her safely.", date: "2026-11-18", src: "털모자 삼킨 하마 피오나 기사" },
+  { word: "Premature", def: "[형] 조산의, 때 이른 · /ˌpriːməˈtʃʊr/ — 예: She was born 6 weeks premature.", date: "2026-11-18", src: "털모자 삼킨 하마 피오나 기사" },
+  { word: "Invested in", def: "[구] (~에) 마음을 쓰는, 관심을 쏟는 — 예: People have been invested in Fiona's health.", date: "2026-11-18", src: "털모자 삼킨 하마 피오나 기사" },
+  { word: "Enclosure", def: "[명] (동물) 우리, 사육장 · /ɪnˈkloʊʒər/ — 예: A couple got engaged in front of her enclosure.", date: "2026-11-18", src: "털모자 삼킨 하마 피오나 기사" },
+  { word: "Cameo", def: "[명] 깜짝 등장, 카메오 출연 · /ˈkæmioʊ/ — 예: She was kind enough to make a cameo.", date: "2026-11-18", src: "털모자 삼킨 하마 피오나 기사" },
+  { word: "For the record", def: "[구] 분명히 말해 두자면, 참고로 — 예: And for the record, she's not alone here.", date: "2026-11-18", src: "털모자 삼킨 하마 피오나 기사" },
+  { word: "Wolf down", def: "[구] 게걸스럽게 먹어 치우다 · /wʊlf/ — 예: Luna wolfed down 24 socks.", date: "2026-11-18", src: "털모자 삼킨 하마 피오나 기사" },
+  { word: "Undergo", def: "[동] (수술·검사 등을) 겪다, 받다 · /ˌʌndərˈɡoʊ/ — 예: They each underwent emergency surgery.", date: "2026-11-18", src: "털모자 삼킨 하마 피오나 기사" },
+  { word: "Pass", def: "[동] (배설물로) 배출하다 — 예: She has already passed some fibers from the cap.", date: "2026-11-18", src: "털모자 삼킨 하마 피오나 기사" },
   { word: "Grocery shopping", def: "[명] 장보기 · /ˈɡroʊsəri/ — 예: Grocery shopping is crazy these days.", date: "2026-11-17", src: "식료품값 상승 기사" },
   { word: "Put pressure on", def: "[구] ~에 압박을 주다·부담을 지우다 · /ˈpreʃər/ — 예: Prices keep putting pressure on our budgets.", date: "2026-11-17", src: "식료품값 상승 기사" },
   { word: "Adapt", def: "[동] 적응하다, 맞추다 · /əˈdæpt/ — 예: They had to adapt to the economy.", date: "2026-11-17", src: "식료품값 상승 기사" },
@@ -556,7 +605,7 @@ DEFAULT_VOCAB.forEach(dv => {
   }
 });
 
-let currentOpenDate = "2026-11-17";
+let currentOpenDate = "2026-11-18";
 
 function saveStorage() {
   localStorage.setItem('news_study_list', JSON.stringify(newsList));
