@@ -459,11 +459,50 @@ const DICTIONARY = {
   "confident": "확신하는, 자신 있는",
   "tough": "억척스러운, 강한",
   "fluids": "수액, 액체",
-  "fibers": "섬유, 올 (fiber: 섬유)"
+  "fibers": "섬유, 올 (fiber: 섬유)",
+  "solo": "혼자의, 1인의 (solo household: 1인 가구)",
+  "households": "가구들 (household: 가구)",
+  "household": "가구 (1인이 함께 사는 단위)",
+  "caught": "붙잡혔다 (be caught off guard: 허를 찔리다, 당황하다)",
+  "guard": "경계, 방비 (off guard: 방심한)",
+  "afford": "여유가 있다, 감당하다 (affording: ~을 감당하는 것)",
+  "affording": "감당하는 것 (afford: 여유가 있다)",
+  "reflect": "반영하다, 보여 주다",
+  "hitting": "때리는, 강타하는 (hit: 때리다)",
+  "pinch": "꼬집다; (feel the pinch: 부담을 느끼다)",
+  "aisles": "매장 통로들 (aisle: 통로)",
+  "disproportionately": "불균형하게, 유난히 크게",
+  "proportion": "비율, 균형",
+  "split": "나누다 (split expenses: 비용을 나누다)",
+  "expenses": "비용, 지출 (expense: 비용)",
+  "single": "혼자의, 미혼의; 하나의",
+  "ingredients": "재료들 (ingredient: 재료)",
+  "portioned": "1인분으로 나뉜 (portion: 분량, 1인분)",
+  "bulk": "대량, 부피 (in bulk: 대량으로)",
+  "savings": "절약한 돈, 저축",
+  "fridge": "냉장고 (refrigerator의 줄임말)",
+  "store": "가게; (store brand: 유통사 자체 브랜드)",
+  "brands": "브랜드들 (brand: 상표)",
+  "brand": "브랜드, 상표 (no-name brand: 무명 브랜드)",
+  "genuine": "진짜의, 실제의",
+  "pivot": "방향을 바꾸다, 전환하다",
+  "sale": "할인 판매 (on sale: 세일 중인)",
+  "space": "공간",
+  "shoppers": "장 보는 사람들, 소비자 (shopper: 손님)",
+  "grocery store": "식료품점",
 };
 
-// 기본 뉴스 데이터 (2026-11-18 최신순)
+// 기본 뉴스 데이터 (2026-11-19 최신순)
 const DEFAULT_NEWS = [
+  {
+    date: "2026-11-19",
+    field: "경제/생활",
+    headline: "Solo Households Hit Hard by Rising Grocery Costs",
+    headlineKr: "1인 가구, 치솟는 장바구니 물가에 직격탄… 1인당 식료품비 주당 102달러",
+    youtubeUrl: "https://youtu.be/_aGmQZl5NKQ?si=OCWzSLDbwaUmpR0A",
+    body: "When Ian Heather goes to the grocery store, he is caught off guard with how high grocery prices are. ! That new survey does reflect how the cost of living crunch is hitting solo households particularly hard. ! When it comes to affording food items, in particular for those living on their own, it can be summed up this way. ! It's tough. ! While everyone is feeling the pinch in the grocery aisles, the new survey from Interac found six in 10 solo households felt that they face disproportionately higher per person costs compared to Canadians who split expenses. ! As a single person living on my own, I definitely notice. ! The survey found the average single person household spends about $102 a week on groceries compared to $80 per person in a shared household. ! Many of those living alone say it is harder to find ingredients portioned for one, and many say they miss out on the savings that come from buying in bulk. ! In part, worried about food going bad before they can use it all. ! If you're a single person, you have to worry about space. ! You're often living in a smaller space. ! You might have a smaller fridge. ! Single person households now make up about three in 10 homes. ! And nearly four in 10 said they've switched to store or no-name brands in the last 6 months. ! Meanwhile, some note solo shoppers do have one genuine advantage. ! They can more easily pivot to buying what's on sale with only one person in the household making the decision.",
+    krSummary: "혼자 사는 가구가 치솟는 식료품값에 유난히 크게 눌리고 있다는 설문 결과가 나왔습니다. 캐나다 결제 네트워크 인터랙(Interac) 조사에서 1인 가구 10곳 중 6곳이 비용을 나눠 사는 가구보다 1인당 식료품비 부담이 불균형하게 크다고 답했고, 실제로 1인 가구는 주당 약 102달러를 식료품에 쓰지만 함께 사는 가구는 1인당 80달러 수준이었습니다. 혼자 사는 사람들은 1인분으로 나뉜 재료를 찾기 어렵고, 대량으로 사서 아끼는 돈을 놓치며, 다 먹기 전에 음식이 상할까 봐 걱정한다고 합니다. 이제 전체 가구의 약 10곳 중 3곳이 1인 가구이고, 최근 6개월 새 10명 중 4명가량이 자체 브랜드나 무명 브랜드로 바꿨다고 답했습니다. 다만 결정권자가 한 명뿐이라 세일 상품으로 더 쉽게 갈아탈 수 있다는 점은 1인 가구만의 진짜 장점이라고 합니다."
+  },
   {
     date: "2026-11-18",
     field: "라이프/문화",
@@ -539,6 +578,21 @@ DEFAULT_NEWS.forEach(dn => {
 newsList.sort((a, b) => b.date.localeCompare(a.date));
 
 const DEFAULT_VOCAB = [
+  { word: "Caught off guard", def: "[구] (뜻밖의 일에) 당황한, 허를 찔린 · /kɔːt ɔːf ɡɑːrd/ — 예: He is caught off guard with how high grocery prices are.", date: "2026-11-19", src: "1인 가구 식료품비 부담 기사" },
+  { word: "Cost of living", def: "[명] 생활비 · /ˌkɔːst əv ˈlɪvɪŋ/ — 예: The cost of living crunch is hitting solo households hard.", date: "2026-11-19", src: "1인 가구 식료품비 부담 기사" },
+  { word: "Crunch", def: "[명] (자금·시간의) 압박, 부족 · /krʌntʃ/ — 예: The cost of living crunch is hitting solo households particularly hard.", date: "2026-11-19", src: "1인 가구 식료품비 부담 기사" },
+  { word: "Solo household", def: "[명] 1인 가구, 혼자 사는 가구 — 예: Six in 10 solo households felt the burden.", date: "2026-11-19", src: "1인 가구 식료품비 부담 기사" },
+  { word: "Sum up", def: "[구] 요약하다 (be summed up this way: 이렇게 정리된다) — 예: It can be summed up this way.", date: "2026-11-19", src: "1인 가구 식료품비 부담 기사" },
+  { word: "Feel the pinch", def: "[구] (돈이 모자라) 부담을 느끼다, 쪼들리다 · /pɪntʃ/ — 예: Everyone is feeling the pinch in the grocery aisles.", date: "2026-11-19", src: "1인 가구 식료품비 부담 기사" },
+  { word: "Aisle", def: "[명] (매장·극장의) 통로, 진열대 사이 · /aɪl/ — 예: Everyone is feeling the pinch in the grocery aisles.", date: "2026-11-19", src: "1인 가구 식료품비 부담 기사" },
+  { word: "Disproportionately", def: "[부] 불균형하게, 유난히 크게 · /ˌdɪsprəˈpɔːrʃənətli/ — 예: They face disproportionately higher per person costs.", date: "2026-11-19", src: "1인 가구 식료품비 부담 기사" },
+  { word: "Split expenses", def: "[구] 비용을 나눠 내다 · /splɪt ɪkˈspensɪz/ — 예: Compared to Canadians who split expenses.", date: "2026-11-19", src: "1인 가구 식료품비 부담 기사" },
+  { word: "Portioned for one", def: "[구] 1인분으로 나뉜 — 예: It is harder to find ingredients portioned for one.", date: "2026-11-19", src: "1인 가구 식료품비 부담 기사" },
+  { word: "Miss out on", def: "[구] (~을) 놓치다, 못 누리다 — 예: Many say they miss out on the savings.", date: "2026-11-19", src: "1인 가구 식료품비 부담 기사" },
+  { word: "In bulk", def: "[구] 대량으로, 묶음으로 · /bʌlk/ — 예: The savings that come from buying in bulk.", date: "2026-11-19", src: "1인 가구 식료품비 부담 기사" },
+  { word: "Go bad", def: "[구] (음식이) 상하다 — 예: Worried about food going bad before they can use it all.", date: "2026-11-19", src: "1인 가구 식료품비 부담 기사" },
+  { word: "No-name brand", def: "[명] 무명 브랜드, (유통사) 자체 브랜드 — 예: They've switched to store or no-name brands.", date: "2026-11-19", src: "1인 가구 식료품비 부담 기사" },
+  { word: "Pivot", def: "[동] 방향을 바꾸다, 전환하다 · /ˈpɪvət/ — 예: They can more easily pivot to buying what's on sale.", date: "2026-11-19", src: "1인 가구 식료품비 부담 기사" },
   { word: "Ingest", def: "[동] (물건·음식을) 삼키다, 섭취하다 · /ɪnˈdʒest/ — 예: She ingested part of a knit cap.", date: "2026-11-18", src: "털모자 삼킨 하마 피오나 기사" },
   { word: "Around the clock", def: "[구] 24시간 내내, 밤낮없이 — 예: Staff are watching her around the clock.", date: "2026-11-18", src: "털모자 삼킨 하마 피오나 기사" },
   { word: "Habitat", def: "[명] 서식지, (동물원) 사육 공간 · /ˈhæbɪtæt/ — 예: The hat flew into her habitat.", date: "2026-11-18", src: "털모자 삼킨 하마 피오나 기사" },
@@ -605,7 +659,7 @@ DEFAULT_VOCAB.forEach(dv => {
   }
 });
 
-let currentOpenDate = "2026-11-18";
+let currentOpenDate = "2026-11-19";
 
 function saveStorage() {
   localStorage.setItem('news_study_list', JSON.stringify(newsList));
