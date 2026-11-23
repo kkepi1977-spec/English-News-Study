@@ -580,10 +580,53 @@ const DICTIONARY = {
   "candid": "솔직한, 거리낌 없는",
   "thought": "생각 (food for thought: 생각할 거리)",
   "needed": "필요한 (much needed: 꼭 필요한)",
+  "crisis": "위기 (in its biggest crisis: 최대의 위기에 빠진)",
+  "decade": "10년 (three decade history: 30년 역사)",
+  "board": "이사회 (The NVIDIA board: 엔비디아 이사회)",
+  "admitted": "인정했다 (admit to -ing: ~한 사실을 인정하다)",
+  "affair": "(혼외)정사 (extramarital affair: 혼외정사)",
+  "executive": "임원, 간부 (a former executive: 전 임원)",
+  "accused": "고발당한, 혐의를 받는 (be accused of: ~한 혐의로 지목되다)",
+  "export": "수출 (export controls: 수출 통제)",
+  "controls": "통제 (export controls: 수출 통제)",
+  "smuggling": "밀수 (smuggle: 밀수하다)",
+  "suspected": "의심받는 (a suspected spy: 스파이로 의심되는 인물)",
+  "spy": "스파이, 첩보원",
+  "agency": "기관 (spy agency: 정보기관)",
+  "recruited": "포섭된, 끌어들여진 (recruit: 모집하다, 포섭하다)",
+  "strategically": "전략적으로 (strategically critical: 전략적으로 중대한)",
+  "critical": "중대한, 결정적인",
+  "dominate": "압도하다, 지배하다",
+  "supremacy": "패권, 우위 (AI supremacy: AI 패권)",
+  "restrict": "제한하다",
+  "advancements": "발전, 진전 (advancement: 발전)",
+  "semiconductors": "반도체 (semiconductor: 반도체)",
+  "revolution": "혁명 (the AI revolution: AI 혁명)",
+  "crucial": "결정적인, 핵심적인",
+  "component": "구성 요소, 한 축",
+  "founder": "창업자",
+  "in charge": "책임지고 있는 (be in charge: 책임지다)",
+  "senior": "고위의, 선임의",
+  "successor": "후임자 (no obvious successor: 뻔한 후임자가 없는)",
+  "high-flying": "승승장구하는, 크게 성공한",
+  "visionary": "선구자, 비전을 가진 사람",
+  "valuation": "기업 가치 평가 (a multi-trillion dollar valuation: 수조 달러 가치)",
+  "tremendous": "엄청난, 대단한",
+  "fame": "명성",
+  "episode": "사건, 에피소드",
 };
 
-// 기본 뉴스 데이터 (2026-11-23 최신순)
+// 기본 뉴스 데이터 (2026-11-24 최신순)
 const DEFAULT_NEWS = [
+  {
+    date: "2026-11-24",
+    field: "경제/기술",
+    headline: "What Jensen Huang's Exit Means for Nvidia's Future",
+    headlineKr: "엔비디아 창업자 젠슨 황 CEO 전격 사퇴… 혼외정사·중국 스파이 의혹에 발목",
+    youtubeUrl: "https://youtu.be/aOhSbNXzVXQ?si=82XFHX5LswMAvbSW",
+    body: "Nvidia is really in its biggest crisis in its three decade history of operation. ! The NVIDIA board has announced that Jensen Huang is out as CEO. ! CEO Jensen Huang has admitted to having an extramarital affair after reports he was targeted by a suspected Chinese spy. ! Her name was Alice Huang, a former executive at Megaspeed International, an Nvidia customer accused by the Trump administration of breaking US export controls and smuggling chips into China. ! The US government reportedly suspects that she was recruited by a Chinese spy agency to influence the Nvidia CEO. ! Nvidia is among, if not the most strategically critical company for US efforts to dominate China in the global chip race. ! The prize is AI supremacy. ! And that is what the race is for here because you've got the US that's been trying to restrict China's advancements in AI technology for years now with things like export controls in place. ! Jensen Huang founded and for more than three decades ran Nvidia whose advanced semiconductors power the AI revolution. ! Huang was a crucial component. ! He was a founder always in charge. ! Nearly 60 senior people reported to him and he had no obvious successor. ! Jensen Huang was this high-flying tech leader and visionary who appears to be at the top of the world whose vision brought his company a multi-trillion dollar valuation and brought himself tremendous fame as one of the greatest tech leaders of his time. ! But this episode really brought him down to earth.",
+    krSummary: "AI 반도체의 상징인 엔비디아가 창업 30년 역사상 최대의 위기에 빠졌습니다. 엔비디아 이사회는 젠슨 황이 CEO에서 물러난다고 발표했고, 황은 중국 스파이로 의심되는 인물의 표적이 되었다는 보도 뒤에 혼외정사 사실을 인정했습니다. 상대는 엔비디아 고객사 메가스피드 인터내셔널의 전 임원인 앨리스 황으로, 이 회사는 트럼프 행정부로부터 미국 수출 통제를 위반하고 칩을 중국으로 밀수한 혐의를 받고 있으며, 미국 정부는 그녀가 중국 정보기관에 포섭돼 엔비디아 CEO에게 영향력을 행사하려 했다고 보고 있습니다. 배경에는 AI 패권을 둘러싼 미·중 반도체 경쟁이 있습니다. 엔비디아는 미국이 중국을 압도하는 데 가장 전략적으로 중요한 기업이고, 미국은 수년째 수출 통제로 중국의 AI 기술 발전을 제한해 왔습니다. 30년 넘게 회사를 이끌며 수조 달러의 기업 가치와 동시대 최고 기술 리더의 명성을 쌓은 황이지만, 이번 사건은 그를 현실로 끌어내렸습니다."
+  },
   {
     date: "2026-11-23",
     field: "경제/부동산",
@@ -686,6 +729,24 @@ DEFAULT_NEWS.forEach(dn => {
 newsList.sort((a, b) => b.date.localeCompare(a.date));
 
 const DEFAULT_VOCAB = [
+  { word: "crisis", def: "[명] 위기 · /ˈkraɪsɪs/ — 예: Nvidia is really in its biggest crisis in its three decade history of operation.", date: "2026-11-24", src: "엔비디아 젠슨 황 CEO 사퇴 기사" },
+  { word: "board", def: "[명] 이사회 · /bɔːrd/ — 예: The NVIDIA board has announced that Jensen Huang is out as CEO.", date: "2026-11-24", src: "엔비디아 젠슨 황 CEO 사퇴 기사" },
+  { word: "out as CEO", def: "[구] CEO 자리에서 물러난 · /aʊt æz ˌsiː iː ˈoʊ/ — 예: The NVIDIA board has announced that Jensen Huang is out as CEO.", date: "2026-11-24", src: "엔비디아 젠슨 황 CEO 사퇴 기사" },
+  { word: "admit to -ing", def: "[구] ~한 사실을 인정하다 · /ədˈmɪt tə/ — 예: CEO Jensen Huang has admitted to having an extramarital affair.", date: "2026-11-24", src: "엔비디아 젠슨 황 CEO 사퇴 기사" },
+  { word: "extramarital affair", def: "[명] 혼외정사 · /ˌekstrəˈmærɪtl əˈfer/ — 예: He has admitted to having an extramarital affair.", date: "2026-11-24", src: "엔비디아 젠슨 황 CEO 사퇴 기사" },
+  { word: "executive", def: "[명] 임원 · /ɪɡˈzekjətɪv/ — 예: Alice Huang, a former executive at Megaspeed International.", date: "2026-11-24", src: "엔비디아 젠슨 황 CEO 사퇴 기사" },
+  { word: "export controls", def: "[명] 수출 통제 · /ˈekspɔːrt kənˈtroʊlz/ — 예: Accused of breaking US export controls.", date: "2026-11-24", src: "엔비디아 젠슨 황 CEO 사퇴 기사" },
+  { word: "smuggling", def: "[명] 밀수 · /ˈsmʌɡlɪŋ/ — 예: Accused of smuggling chips into China.", date: "2026-11-24", src: "엔비디아 젠슨 황 CEO 사퇴 기사" },
+  { word: "suspected", def: "[형] 의심받는 · /səˈspektɪd/ — 예: After reports he was targeted by a suspected Chinese spy.", date: "2026-11-24", src: "엔비디아 젠슨 황 CEO 사퇴 기사" },
+  { word: "recruit", def: "[동] (사람을) 포섭하다, 끌어들이다 · /rɪˈkruːt/ — 예: The US government suspects that she was recruited by a Chinese spy agency.", date: "2026-11-24", src: "엔비디아 젠슨 황 CEO 사퇴 기사" },
+  { word: "spy agency", def: "[명] 정보기관 · /ˈspaɪ ˌeɪdʒənsi/ — 예: She was recruited by a Chinese spy agency to influence the Nvidia CEO.", date: "2026-11-24", src: "엔비디아 젠슨 황 CEO 사퇴 기사" },
+  { word: "strategically critical", def: "[구] 전략적으로 중대한 · /strəˈtiːdʒɪkli ˈkrɪtɪkl/ — 예: Nvidia is among, if not the most strategically critical company for US efforts.", date: "2026-11-24", src: "엔비디아 젠슨 황 CEO 사퇴 기사" },
+  { word: "dominate", def: "[동] 압도하다, 지배하다 · /ˈdɑːmɪneɪt/ — 예: US efforts to dominate China in the global chip race.", date: "2026-11-24", src: "엔비디아 젠슨 황 CEO 사퇴 기사" },
+  { word: "supremacy", def: "[명] 패권, 우위 · /suːˈpreməsi/ — 예: The prize is AI supremacy.", date: "2026-11-24", src: "엔비디아 젠슨 황 CEO 사퇴 기사" },
+  { word: "restrict", def: "[동] 제한하다 · /rɪˈstrɪkt/ — 예: The US has been trying to restrict China's advancements in AI technology.", date: "2026-11-24", src: "엔비디아 젠슨 황 CEO 사퇴 기사" },
+  { word: "semiconductor", def: "[명] 반도체 · /ˌsemikənˈdʌktər/ — 예: Nvidia's advanced semiconductors power the AI revolution.", date: "2026-11-24", src: "엔비디아 젠슨 황 CEO 사퇴 기사" },
+  { word: "successor", def: "[명] 후임자 · /səkˈsesər/ — 예: Nearly 60 senior people reported to him and he had no obvious successor.", date: "2026-11-24", src: "엔비디아 젠슨 황 CEO 사퇴 기사" },
+  { word: "bring someone down to earth", def: "[구] ~을 현실로 끌어내리다 · /brɪŋ ˌsʌmwʌn daʊn tə ˈɜːrθ/ — 예: This episode really brought him down to earth.", date: "2026-11-24", src: "엔비디아 젠슨 황 CEO 사퇴 기사" },
   { word: "outpacing", def: "[동] ~을 앞지르다 (outpace의 -ing형) · /ˌaʊtˈpeɪsɪŋ/ — 예: Single Gen Z women are actually outpacing their male counterparts when it comes to buying a home.", date: "2026-11-23", src: "Z세대 미혼 여성 주택 구매 기사" },
   { word: "counterpart", def: "[명] (다른 쪽의) 대응하는 사람·물건, 상대편 · /ˈkaʊntərpɑːrt/ — 예: Single Gen Z women are outpacing their male counterparts.", date: "2026-11-23", src: "Z세대 미혼 여성 주택 구매 기사" },
   { word: "housing market", def: "[명] 주택 시장 · /ˈhaʊzɪŋ ˌmɑːrkɪt/ — 예: New data showing a surprising shift in the housing market.", date: "2026-11-23", src: "Z세대 미혼 여성 주택 구매 기사" },
@@ -799,7 +860,7 @@ DEFAULT_VOCAB.forEach(dv => {
   }
 });
 
-let currentOpenDate = "2026-11-23";
+let currentOpenDate = "2026-11-24";
 
 function saveStorage() {
   localStorage.setItem('news_study_list', JSON.stringify(newsList));
