@@ -691,8 +691,17 @@ const DICTIONARY = {
   "episode": "사건, 에피소드",
 };
 
-// 기본 뉴스 데이터 (2026-11-26 최신순)
+// 기본 뉴스 데이터 (2026-11-27 최신순)
 const DEFAULT_NEWS = [
+  {
+    date: "2026-11-27",
+    field: "건강/의학",
+    headline: "Hundreds Sue GLP-1 Drugmakers Over Vision Loss Tied to a Rare Eye Condition",
+    headlineKr: "살 빼는 약 GLP-1, '돌이킬 수 없는 시력 상실' 부작용… 수백 명 소송",
+    youtubeUrl: "https://youtu.be/9SVbpj8sIAc",
+    body: "Tonight, an alarming side effect possibly linked to GLP-1s, the drugs millions of Americans are taking for weight loss and diabetes. ! A sudden and possibly irreversible eye condition called NAION that can lead to permanent blindness. ! There are no known treatments. ! I woke up one morning and I was like, \"What is wrong with my eye?\" ! There was no warning sign at all. ! Diane Worth had to quit her job as a nurse practitioner and now she can no longer read. ! She was on a GLP-1 for weight loss. ! Now she has lost almost all of her vision in her right eye. ! It's fair to say this has upended your entire life, hasn't it, Diane? ! Oh, for sure. It for sure has. ! It's been very challenging. ! Worth is one of hundreds of Americans who are suing GLP-1 drug makers, Novo Nordisk and Eli Lilly, saying they were not adequately warned of the potential danger of vision loss. ! And the label needs to be updated if the companies want to do the responsible thing. ! Stephanie, this still sounds very, very rare, but what should people look out for if they're concerned? ! Some people say they see something black over their eye. ! The woman who we spoke to said, \"Imagine someone taking Vaseline and putting it on your glasses.\"",
+    krSummary: "수백만 미국인이 체중 감량과 당뇨 치료에 쓰는 GLP-1 계열 약물에서, 갑자기 찾아오고 되돌릴 수 없는 시력 상실 부작용이 보고됐습니다. 비동맥성 전부 허혈성 시신경병증(NAION)이라는 안과 질환으로 영구 실명에 이를 수 있고 알려진 치료법은 없다고 방송은 전했습니다. 다이앤 워스는 체중 감량을 위해 GLP-1을 복용하다 오른쪽 눈 시력을 거의 모두 잃어 전문간호사 일을 그만둬야 했고, 어느 날 아침 눈에 뭔가 잘못된 것 같았을 뿐 아무런 경고 신호도 없었다고 말합니다. 그녀를 포함한 수백 명의 미국인이 제조사인 노보 노디스크와 일라이 릴리를 상대로 시력 손실 위험을 충분히 경고하지 않았다며 소송을 냈고, 방송은 제약사가 책임 있는 일을 하려면 약물 라벨을 개정해야 한다고 지적합니다. 사례가 아주 드물기는 하지만 걱정되는 사람은 눈앞에 검은 것이 가려 보이는 증상을 주의하라고 했고, 인터뷰에 응한 여성은 '안경에 바셀린을 바른 것처럼 보인다'고 표현했습니다."
+  },
   {
     date: "2026-11-26",
     field: "기술/산업",
@@ -822,6 +831,24 @@ DEFAULT_NEWS.forEach(dn => {
 newsList.sort((a, b) => b.date.localeCompare(a.date));
 
 const DEFAULT_VOCAB = [
+  { word: "alarming", def: "[형] 놀라게 하는, 우려스러운 · /əˈlɑːrmɪŋ/ — 예: Tonight, an alarming side effect possibly linked to GLP-1s.", date: "2026-11-27", src: "GLP-1 시력 상실 부작용 기사" },
+  { word: "be linked to", def: "[구] ~와 관련이 있다 · /biː lɪŋkt tə/ — 예: an alarming side effect possibly linked to GLP-1s.", date: "2026-11-27", src: "GLP-1 시력 상실 부작용 기사" },
+  { word: "irreversible", def: "[형] 되돌릴 수 없는 · /ˌɪrɪˈvɜːrsəbl/ — 예: A sudden and possibly irreversible eye condition.", date: "2026-11-27", src: "GLP-1 시력 상실 부작용 기사" },
+  { word: "lead to", def: "[구] ~로 이어지다, ~을 초래하다 · /liːd tə/ — 예: a sudden and possibly irreversible eye condition that can lead to permanent blindness.", date: "2026-11-27", src: "GLP-1 시력 상실 부작용 기사" },
+  { word: "warning sign", def: "[명] 경고 신호, 전조 증상 · /ˈwɔːrnɪŋ saɪn/ — 예: There was no warning sign at all.", date: "2026-11-27", src: "GLP-1 시력 상실 부작용 기사" },
+  { word: "nurse practitioner", def: "[명] 전문간호사 · /nɜːrs prækˈtɪʃənər/ — 예: Diane Worth had to quit her job as a nurse practitioner.", date: "2026-11-27", src: "GLP-1 시력 상실 부작용 기사" },
+  { word: "can no longer + 동사", def: "[구] 더 이상 ~할 수 없다 · /kæn noʊ ˈlɔːŋɡər/ — 예: Diane Worth had to quit her job as a nurse practitioner and now she can no longer read.", date: "2026-11-27", src: "GLP-1 시력 상실 부작용 기사" },
+  { word: "be on + 약물", def: "[구] ~을 복용 중이다 · /biː ɑːn/ — 예: She was on a GLP-1 for weight loss.", date: "2026-11-27", src: "GLP-1 시력 상실 부작용 기사" },
+  { word: "vision", def: "[명] 시력, 시각 · /ˈvɪʒn/ — 예: Now she has lost almost all of her vision in her right eye.", date: "2026-11-27", src: "GLP-1 시력 상실 부작용 기사" },
+  { word: "upend", def: "[동] 완전히 뒤집어엎다, (삶을) 뒤흔들다 · /ʌpˈend/ — 예: It's fair to say this has upended your entire life.", date: "2026-11-27", src: "GLP-1 시력 상실 부작용 기사" },
+  { word: "It's fair to say", def: "[구] ~라고 해도 과언이 아니다 · /ɪts fer tə seɪ/ — 예: It's fair to say this has upended your entire life, hasn't it, Diane?", date: "2026-11-27", src: "GLP-1 시력 상실 부작용 기사" },
+  { word: "for sure", def: "[구] 확실히, 당연히 · /fər ʃʊr/ — 예: Oh, for sure. It for sure has.", date: "2026-11-27", src: "GLP-1 시력 상실 부작용 기사" },
+  { word: "challenging", def: "[형] 힘든, 어려운 · /ˈtʃælɪndʒɪŋ/ — 예: It's been very challenging.", date: "2026-11-27", src: "GLP-1 시력 상실 부작용 기사" },
+  { word: "sue", def: "[동] 소송을 제기하다, 고소하다 · /suː/ — 예: Worth is one of hundreds of Americans who are suing GLP-1 drug makers.", date: "2026-11-27", src: "GLP-1 시력 상실 부작용 기사" },
+  { word: "adequately", def: "[부] 충분히, 적절히 · /ˈædɪkwətli/ — 예: saying they were not adequately warned of the potential danger of vision loss.", date: "2026-11-27", src: "GLP-1 시력 상실 부작용 기사" },
+  { word: "label", def: "[명] (의약품) 라벨, 설명서·경고 표시 · /ˈleɪbl/ — 예: And the label needs to be updated if the companies want to do the responsible thing.", date: "2026-11-27", src: "GLP-1 시력 상실 부작용 기사" },
+  { word: "look out for", def: "[구] ~을 주의 깊게 살피다 · /lʊk aʊt fɔːr/ — 예: what should people look out for if they're concerned?", date: "2026-11-27", src: "GLP-1 시력 상실 부작용 기사" },
+  { word: "Vaseline", def: "[명] 바셀린(석유젤리 브랜드명) · /ˈvæsəliːn/ — 예: Imagine someone taking Vaseline and putting it on your glasses.", date: "2026-11-27", src: "GLP-1 시력 상실 부작용 기사" },
   { word: "footprint", def: "[명] (사업·시설) 거점, 발판 · /ˈfʊtprɪnt/ — 예: Apple is expanding its Houston footprint.", date: "2026-11-26", src: "애플 휴스턴 제조센터 기사" },
   { word: "advanced manufacturing center", def: "[명] 첨단 제조 센터 · /ədˈvænst ˌmænjuˈfæktʃərɪŋ ˈsentər/ — 예: Apple is opening a new advanced manufacturing center in North Harris County.", date: "2026-11-26", src: "애플 휴스턴 제조센터 기사" },
   { word: "outgoing", def: "[형] (임기를 마치고) 물러나는 · /ˈaʊtɡoʊɪŋ/ — 예: Outgoing CEO Tim Cook was here for the grand opening.", date: "2026-11-26", src: "애플 휴스턴 제조센터 기사" },
@@ -987,7 +1014,7 @@ DEFAULT_VOCAB.forEach(dv => {
   }
 });
 
-let currentOpenDate = "2026-11-26";
+let currentOpenDate = "2026-11-27";
 
 function saveStorage() {
   localStorage.setItem('news_study_list', JSON.stringify(newsList));
